@@ -3,11 +3,11 @@ from PIL import Image
 import copy
 import math
 import collections
-import EmojiCloud
 import functools
 
 from .util import *
 
+parent_dir = os.path.dirname(os.path.abspath(__file__))
 
 # @timeit
 def resize_img_based_weight(im_read, weight):
@@ -99,8 +99,7 @@ def generate_resized_emoji_images(path_img_raw, dict_weight, canvas_area, dict_c
     norm_area_sum = 0
     for im_name in dict_weight:
         if im_name not in dict_customized:
-            im_read = Image.open(EmojiCloud.__path__[
-                                 0] + '/' + os.path.join(path_img_raw, im_name))
+            im_read = Image.open(parent_dir + '/' + os.path.join(path_img_raw, im_name))
         else:
             im_read = Image.open(dict_customized[im_name])
         normalized_weight = dict_weight[im_name] / weight_sum
