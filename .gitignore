@@ -161,3 +161,5 @@ cython_debug/
 
 # EmojiData
 data/
+
+.DS_Store
