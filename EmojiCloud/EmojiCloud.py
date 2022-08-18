@@ -1,13 +1,14 @@
 import os
 from PIL import Image
 import copy
-import math
+import math 
 import collections
 import functools
-
 from .util import *
 
+
 parent_dir = os.path.dirname(os.path.abspath(__file__))
+
 
 # @timeit
 def resize_img_based_weight(im_read, weight):
