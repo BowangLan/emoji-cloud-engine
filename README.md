@@ -63,3 +63,5 @@ All available vendors is stored in `EmojiCloud.vendors.vendor_dir_list` as a Pyt
 from EmojiCloud.vendors import vendor_dir_list
 print(vendor_dir_list)
 ```
+
+You can check if an emoji with a specific unicode of a specific vendor exists using `EmojiManager.check_exists(unicode, vendor)` method.
