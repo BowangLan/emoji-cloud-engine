@@ -10,11 +10,11 @@ class CanvasBase():
     * `self.map_occupied` - a 2D list of whether the each pixel in the canvas is occupied or not 
     """
     @property
-    def center_x(self):
+    def center_x(self) -> int:
         return int(self.w/2)
 
     @property
-    def center_y(self):
+    def center_y(self) -> int:
         return int(self.h/2)
 
     def calculate_sorted_canvas_pix_for_plotting(self):
