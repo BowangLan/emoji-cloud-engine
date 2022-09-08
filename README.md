@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is an edited version of `https://github.com/YunheFeng/EmojiCloud`. This version provides a more powerful API than Yunhe's version.
+This is an edited version of [EmojiCloud](https://github.com/YunheFeng/EmojiCloud). This version provides a more powerful API than Yunhe's version.
 
 ## Set up
 
