@@ -5,6 +5,23 @@ from PIL import Image
 from .config import data_dir
 
 
+def parse_emoji_unicode(code: str) -> str:
+    if code[:2].lower() == 'u+':
+        return code
+    # replace ',' and ' '
+    im_name_proc = code.replace(',', '-').replace(' ', '')
+
+    # emoji by unicode
+    if not im_name_proc.replace('-', '').isalnum():
+        im_rename = 'U+' + '-U+'.join(
+            '{:X}'.format(ord(_)) for _ in im_name_proc
+        )
+    else: # emoji by codepoint
+        im_rename = im_name_proc.upper()
+        if 'U+' not in im_rename:
+            im_rename = 'U+' + '-U+'.join(im_rename.split('-'))
+    return im_rename
+
 @dataclass
 class EmojiItem:
 
@@ -12,6 +29,9 @@ class EmojiItem:
     weight: float
     vendor: str
     _im: Image.Image = field(default=None, init=False)
+
+    def __post_init__(self):
+        self.unicode = parse_emoji_unicode(self.unicode)
 
     def exists(self) -> bool:
         """Check if the current emoji item instance exists
