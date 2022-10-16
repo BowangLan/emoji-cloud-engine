@@ -8,12 +8,26 @@ dict_vendor = {'Apple': 'Appl', 'Google': 'Goog', 'Meta': 'FB',
 def get_emoji_vendor_path(vendor: str):
     return os.path.join('data', dict_vendor[vendor])
 
-APPLE = os.path.join(data_dir, 'Appl')
-GOOGLE = os.path.join(data_dir, 'Goog')
-META = os.path.join(data_dir, 'FB')
-WINDOWS = os.path.join(data_dir, 'Wind')
-TWITTER = os.path.join(data_dir, 'Twtr')
-JOYPIXEL = os.path.join(data_dir, 'Joy')
-SAMSUNG = os.path.join(data_dir, 'Sams')
+
+APPLE = 'Appl'
+APPLE_PATH = os.path.join(data_dir, APPLE)
+
+GOOGLE = 'Goog'
+GOOGLE_PATH = os.path.join(data_dir, GOOGLE)
+
+META = 'FB'
+META_PATH = os.path.join(data_dir, META)
+
+WINDOWS = 'Wind'
+WINDOWS_PATH = os.path.join(data_dir, WINDOWS)
+
+TWITTER = 'Twtr'
+TWITTER_PATH = os.path.join(data_dir, TWITTER)
+
+JOYPIXEL = 'Joy'
+JOYPIXEL_PATH = os.path.join(data_dir, JOYPIXEL)
+
+SAMSUNG = 'Sams'
+SAMSUNG_PATH = os.path.join(data_dir, SAMSUNG)
 
 vendor_dir_list = os.listdir(data_dir)

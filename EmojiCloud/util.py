@@ -2,6 +2,7 @@ import math
 from PIL import Image
 from rich.console import Console
 from timeit import default_timer as timer
+import numpy as np
 
 global console
 console = Console()
@@ -125,3 +126,20 @@ def remove_pixel_outside_bb(im, thold_alpha):
             im_dense.putpixel((i, j), list_column[j][i])
     return im_dense
 
+
+# def remove_pixel_outside_bb(im, thold_alpha):
+#     """remove all pixels outside the bounding box
+#     improved version
+
+#     Args:
+#         im (2D list): the image in 2D array with each cell of RGBA
+#         thold_alpha (float): the threshold to distinguish white and non-white colors
+
+#     Returns:
+
+#     """
+#     im_array = np.array(im.convert('RGBA'))
+#     s = np.dstack(np.meshgrid(np.arange(72), np.arange(72), indexing='ij'))
+#     im_array = np.dstack((im_array, s))
+#     return im_array[im_array[:, :, 3] >= thold_alpha, :]
+    

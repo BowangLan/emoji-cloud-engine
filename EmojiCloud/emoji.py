@@ -1,5 +1,5 @@
 import os
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
 from PIL import Image
 
 from .config import data_dir
@@ -21,6 +21,7 @@ def parse_emoji_unicode(code: str) -> str:
         if 'U+' not in im_rename:
             im_rename = 'U+' + '-U+'.join(im_rename.split('-'))
     return im_rename
+
 
 @dataclass
 class EmojiItem:
@@ -48,6 +49,12 @@ class EmojiItem:
             self._im = Image.open(self.fullpath).convert("RGBA")
         return self._im
 
+    def asdict(self):
+        return {
+            "unicode": self.unicode,
+            "vendor": self.vendor,
+            "weight": self.weight
+        }
 
 
 class EmojiManager:
@@ -105,13 +112,27 @@ class EmojiManager:
 
 
     @staticmethod
+    def emoji_item_list_to_dict(items: list[EmojiItem]) -> list[dict]:
+        """Convert a list of EmojiItem to a list of Python dictionaries,
+        each consists of three keys: "unicode", "weight", and "vendor".
+
+        Args:
+            items (list[EmojiItem]): a list of EmojiItem
+
+        Returns:
+            list[dict]: a list of Python dictionaries
+        """
+        return [ e.asdict() for e in items ]
+
+
+    @staticmethod
     def filter_exist(items: list[EmojiItem]) -> list[EmojiItem]:
         """Filter a list of EmojiItem objects by removing the non-existing ones.
 
         Args:
-            items (list[EmojiItem]): _description_
+            items (list[EmojiItem]): a list of EmojiItem
 
         Returns:
-            list[EmojiItem]: _description_
+            list[EmojiItem]: the filtered list result
         """
         return list(filter(lambda e: e.exists(), items))

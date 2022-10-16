@@ -65,3 +65,30 @@ print(vendor_dir_list)
 ```
 
 You can check if an emoji with a specific unicode of a specific vendor exists using `EmojiManager.check_exists(unicode, vendor)` method.
+
+## Authors
+
+Contributors names and contact info
+
+* (Yunhe Feng)[https://yunhefeng.me/]
+
+* (Bowang Lan)[https://github.com/BowangLan]
+
+## License
+
+See the LICENSE.md file for details
+
+## Paper
+
+Our paper has been accepted at the 5th International Workshop on Emoji Understanding and Applications in Social Media (EMOJI@NAACL 2022). Online EmojiCloud services will be available soon at www.emojicloud.org.
+
+## Citations
+
+```python
+@inproceedings{feng2022emojicloud,
+  title={EmojiCloud: a Tool for Emoji Cloud Visualization},
+  author={Feng, Yunhe and Guo, Cheng and Wen, Bingbing and Sun, Peng and Yue, Yufei and Tao, Dingwen},
+  booktitle={The 5th International Workshop on Emoji Understanding and Applications in Social Media at 2022 Annual Conference of the North American Chapter of the Association for Computational Linguistics (EMOJI@NAACL)},
+  year={2022}
+}
+```

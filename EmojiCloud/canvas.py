@@ -141,13 +141,13 @@ class MaskedCanvas(CanvasBase):
         """
         self.thold_alpha_bb = thold_alpha_bb
 
-        im_read = Image.open(img_mask)
-        im = im_read.convert('RGBA')
+        im = Image.open(img_mask).convert('RGBA')
+        self.w = im.size[0] + contour_width*2
+        self.h = im.size[1] + contour_width*2
+
         img_mask_within_bb = remove_pixel_outside_bb(im, thold_alpha_bb)
         # parse masked image
-        canvas_w, canvas_h, self.dict_opacity = parse_image_by_array(img_mask_within_bb)
-        self.w = canvas_w + contour_width*2
-        self.h = canvas_h + contour_width*2
+        self.dict_opacity = parse_image_by_array(img_mask_within_bb)
         self.img = Image.new('RGBA', (self.w, self.h), color="white")
 
         self.map_occupied = [[1 for i in range(self.h)] for j in range(self.w)]

@@ -24,7 +24,7 @@ def resize_img_based_weight(im: Image.Image, weight: float) -> Image.Image:
     width, height = im.getdata().size
     width_resize = int(width*weight) if int(width*weight) > 0 else 1
     height_resize = int(height*weight) if int(height*weight) > 0 else 1
-    im_resize = im.resize((width_resize, height_resize), Image.ANTIALIAS)
+    im_resize = im.resize((width_resize, height_resize), Image.LANCZOS)
     return im_resize
 
 
