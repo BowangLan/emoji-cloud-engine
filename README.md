@@ -70,9 +70,9 @@ You can check if an emoji with a specific unicode of a specific vendor exists us
 
 Contributors names and contact info
 
-* (Yunhe Feng)[https://yunhefeng.me/]
+* [Yunhe Feng](https://yunhefeng.me/)
 
-* (Bowang Lan)[https://github.com/BowangLan]
+* [Bowang Lan](https://github.com/BowangLan)
 
 ## License
 
