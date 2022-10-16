@@ -3,17 +3,15 @@ requires      = ["setuptools>=61.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "realpython-reader"
+name = "emojicloud"
 version = "1.0.0"
-description = "Read the latest Real Python tutorials"
+description = "A Python package for visualizing a cluster of emojis according to associated frequency weights."
 readme = "README.md"
-authors = [{ name = "Real Python", email = "info@realpython.com" }]
-license = { file = "LICENSE" }
-classifiers = [
-    "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python",
-    "Programming Language :: Python :: 3",
+authors = [
+    { name = "Yunhe Feng", email = "yunhe.feng@unt.edu" },
+    { name = "Bowang Lan", email = "blan2@uw.edu" }
 ]
+license = { file = "LICENSE" }
 keywords = ["EmojiCloud"]
 dependencies = [
     "numpy",
