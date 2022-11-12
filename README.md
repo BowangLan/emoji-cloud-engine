@@ -2,16 +2,7 @@
 
 ## Introduction
 
-This is an edited version of [EmojiCloud](https://github.com/YunheFeng/EmojiCloud). This version provides a more powerful API than Yunhe's version.
-
-## Set up
-
-The emoji files have to be downloaded from Yunhe's original repository:
-
-```bash
-chmod 777 ./update_data_from_github.sh
-./update_data_from_github.sh
-```
+EmojiCloud is an open-source Python-based emoji cloud visualization tool that generates a quick and straightforward understanding of emojis from the perspective of frequency and importance. EmojiCloud is flexible enough to support diverse drawing shapes, such as rectangles, ellipses, and image masked canvases. We also follow inclusive and personalized design principles to cover the unique emoji designs from seven emoji vendors (e.g., Twitter, Apple, and Windows) and allow users to customize plotted emojis and background colors. We hope EmojiCloud can benefit the whole emoji community due to its flexibility, inclusiveness, and customizability.
 
 ## Basic Usage
 
@@ -19,13 +10,13 @@ chmod 777 ./update_data_from_github.sh
 from EmojiCloud.plot import plot_dense_emoji_cloud
 from EmojiCloud.emoji import EmojiManager
 from EmojiCloud.canvas import EllipseCanvas, RectangleCanvas, MaskedCanvas
+from EmojiCloud.vendors import TWIITER
 
 # set emoji weights by a dict with key: emoji in unicode, value: weight
 dict_weight = {'1f1e6-1f1e8': 1.1, '1f4a7': 1.2, '1f602': 1.3, '1f6f4': 1.4, '1f6f5': 1.5, '1f6f6': 1.6, '1f6f7': 1.7, '1f6f8': 1.8, '1f6f9': 1.9, '1f6fa': 2.0, '1f6fb': 2.1, '1f6fc': 2.2, '1f7e0': 2.3, '1f9a2': 2.4, '1f9a3': 2.5, '1f9a4': 2.6, '1f9a5': 2.7, '1f9a6': 2.8, '1f9a8': 2.9, '1f9a9': 3.0}
 
 # emoji vendor 
-emoji_vendor = 'Twtr'
-emoji_list = EmojiManager.create_list_from_single_vendor(dict_weight, emoji_vendor)
+emoji_list = EmojiManager.create_list_from_single_vendor(dict_weight, TWITTER)
 
 # masked canvas 
 print("Plotting masked cloud")
@@ -57,6 +48,14 @@ im = plot_dense_emoji_cloud(canvas, emoji_list)
 im.save(saved_emoji_cloud_name)
 ```
 
+Results:
+
+![Masked Result Image](https://raw.githubusercontent.com/BowangLan/emoji-cloud-engine/main/examples/results/emoji_cloud_masked.png)
+
+![Rectangle Result Image](https://raw.githubusercontent.com/BowangLan/emoji-cloud-engine/main/examples/results/emoji_cloud_rectangle.png)
+
+![Ellipse Result Image](https://raw.githubusercontent.com/BowangLan/emoji-cloud-engine/main/examples/results/emoji_cloud_ellipse.png)
+
 All available vendors is stored in `EmojiCloud.vendors.vendor_dir_list` as a Python list:
 
 ```python
@@ -80,15 +79,4 @@ See the LICENSE.md file for details
 
 ## Paper
 
-Our paper has been accepted at the 5th International Workshop on Emoji Understanding and Applications in Social Media (EMOJI@NAACL 2022). Online EmojiCloud services will be available soon at www.emojicloud.org.
-
-## Citations
-
-```python
-@inproceedings{feng2022emojicloud,
-  title={EmojiCloud: a Tool for Emoji Cloud Visualization},
-  author={Feng, Yunhe and Guo, Cheng and Wen, Bingbing and Sun, Peng and Yue, Yufei and Tao, Dingwen},
-  booktitle={The 5th International Workshop on Emoji Understanding and Applications in Social Media at 2022 Annual Conference of the North American Chapter of the Association for Computational Linguistics (EMOJI@NAACL)},
-  year={2022}
-}
-```
+This project is inspired by [Yunhe Feng](https://yunhefeng.me/)'s paper [EmojiCloud: a Tool for Emoji Cloud Visualization](https://aclanthology.org/2022.emoji-1.8/).

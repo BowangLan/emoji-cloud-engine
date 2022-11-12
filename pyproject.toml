@@ -1,32 +1,3 @@
 [build-system]
 requires      = ["setuptools>=61.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
-
-[project]
-name = "emojicloud"
-version = "1.0.0"
-description = "A Python package for visualizing a cluster of emojis according to associated frequency weights."
-readme = "README.md"
-authors = [
-    { name = "Yunhe Feng", email = "yunhe.feng@unt.edu" },
-    { name = "Bowang Lan", email = "blan2@uw.edu" }
-]
-license = { file = "LICENSE" }
-keywords = ["EmojiCloud"]
-classifiers = [
-    "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
-    "Operating System :: OS Independent",
-]
-dependencies = [
-    "numpy",
-    "rich",
-    "Pillow"
-]
-requires-python = ">=3.9"
-
-[project.optional-dependencies]
-dev = ["black", "bumpver", "isort", "pip-tools", "pytest"]
-
-[project.urls]
-Homepage = "https://github.com/BowangLan/emoji-cloud-engine"
