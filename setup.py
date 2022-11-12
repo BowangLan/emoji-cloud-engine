@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name="EmojiCloud",
-    version="0.3.0",
+    version="0.4.0",
     authors=[
         { "name": "Yunhe Feng", "email":  "yunhe.feng@unt.edu" },
         { "name": "Bowang Lan", "email": "blan2@uw.edu" }
